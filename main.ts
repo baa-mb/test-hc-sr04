@@ -1,9 +1,13 @@
+let distanz = 0
 basic.showIcon(IconNames.SmallHeart)
 basic.forever(function () {
-    basic.showNumber(sonar.ping(
+    distanz = sonar.ping(
     DigitalPin.P12,
     DigitalPin.P1,
     PingUnit.Centimeters
-    ))
-    basic.pause(500)
+    )
+    basic.showNumber(distanz)
+    basic.pause(100)
+    serial.writeNumber(distanz)
+    serial.writeString("")
 })
